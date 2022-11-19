@@ -1,18 +1,24 @@
 package sistemapenaltis;
 
-import java.awt.FlowLayout;
+import java.awt.Color;
 
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class ScoreBoard extends JPanel{
+
+	private JLabel label;
 	
 	public ScoreBoard() {
-		setLayout(new FlowLayout());
+		createButtons();
 		
-		MenuButton b1 = new MenuButton("Iniciar");
-		MenuButton b2 = new MenuButton("Finalizar");
+	}
+	
+	public void createButtons() {
+		Button b1 = new Button("Iniciar");
 		add(b1);
-		add(b2);
 		
+		Button b2 = new Button("Terminar");
+		add(b2);
 	}
 }
