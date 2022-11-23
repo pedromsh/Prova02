@@ -17,10 +17,10 @@ public class Window extends JFrame{
 	public void organizeLayout() {
 		setLayout(new BorderLayout());
 		
-		ScoreBoard score = new ScoreBoard();
-		add(score, BorderLayout.NORTH);
-		
 		GameBoard board = new GameBoard();
-		add(board.organizeLayout(), BorderLayout.SOUTH);
+		add(board.organizeLayout(), BorderLayout.CENTER);
+		
+		ScoreBoard score = new ScoreBoard(board);
+		add(score, BorderLayout.NORTH);
 	}
 }
