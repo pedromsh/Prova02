@@ -32,7 +32,7 @@ public class ScoreBoard extends JPanel implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		for (Cell c : gameBoard.getCells()) {
 			c.getButton().setOn(true);
-			System.out.println("clicado");
 		}
+		System.out.println("clicado");
 	}
 }

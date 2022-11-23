@@ -31,11 +31,11 @@ public class GameBoard extends JPanel{
 	public void auxMapping(int i) {
 		for(int j = 0; j < 17; j++) {
 			if(j == 0 || j == 16 || i == 0)
-				Cells.add(new Cell(j, i, GoalSection.OUT, new Button().createButton(null, false)));
+				Cells.add(new Cell(j, i, GoalSection.OUT, new Button().createButton(null, false), false));
 			else if(j == 1 || j == 15 || i == 1)
-					Cells.add(new Cell(j, i, GoalSection.GOALPOST, new Button().createButton(null, false)));
+					Cells.add(new Cell(j, i, GoalSection.GOALPOST, new Button().createButton(null, false), false));
 			else
-				Cells.add(new Cell(j, i, GoalSection.GOAL, new Button().createButton(null, false)));
+				Cells.add(new Cell(j, i, GoalSection.GOAL, new Button().createButton(null, false), false));
 		}
 	}
 	
