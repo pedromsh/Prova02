@@ -3,11 +3,12 @@ package sistemapenaltis;
 import java.awt.GridLayout;
 import java.util.ArrayList;
 
+import javax.swing.JButton;
 import javax.swing.JPanel;
 
 public class GameBoard extends JPanel{
 
-	private ArrayList<Cell> Cells;
+private ArrayList<Cell> Cells;
 	
 	public GameBoard() {
 		Cells = new ArrayList<Cell>();
@@ -44,7 +45,7 @@ public class GameBoard extends JPanel{
 		JPanel gamePanel = new JPanel();
 		gamePanel.setLayout(new GridLayout(9, 17));
 		for (Cell c : Cells) {
-			gamePanel.add(c.createButton(null, false));
+			gamePanel.add(c.getButton().createButton(null, false));
 		}
 		
 		return gamePanel;

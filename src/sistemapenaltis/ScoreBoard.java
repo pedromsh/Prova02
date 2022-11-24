@@ -7,9 +7,10 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
-public class ScoreBoard extends JPanel implements ActionListener{
+public class ScoreBoard extends JPanel{
 	
 	private GameBoard gameBoard;
+	private FinishButton finish;
 	
 	public ScoreBoard(GameBoard gameBoard) {
 		this.gameBoard = gameBoard;
@@ -20,19 +21,12 @@ public class ScoreBoard extends JPanel implements ActionListener{
 	public void createButtons() {
 		setLayout(new FlowLayout());
 		
-		Button start = new Button();
-		JButton startButton = start.createButton("Iniciar", true);
-		add(startButton);
-		startButton.addActionListener(this);
+		StartButton start = new StartButton();
+		add(start.setStartButton("Iniciar", gameBoard));
 		
-		Button b2 = new Button();
-		add(b2.createButton("Terminar", false));
+		finish = new FinishButton();
+		add(finish.setFinishButton("Terminar"));
+		
 	}
-	
-	public void actionPerformed(ActionEvent e) {
-		for (Cell c : gameBoard.getCells()) {
-			c.getButton().setOn(true);
-		}
-		System.out.println("clicado");
-	}
+
 }

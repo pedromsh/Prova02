@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 
 public class Cell extends Button implements ActionListener{
 
@@ -24,7 +25,6 @@ public class Cell extends Button implements ActionListener{
 		this.section = section;
 		this.button = button;
 		this.defenseArea = defenseArea;
-		
 		button.addActionListener(this);
 		
 	}
@@ -87,22 +87,24 @@ public class Cell extends Button implements ActionListener{
 	public void setComputerPoint() {
 		computerPoint++;
 	}
-
+	
 	public void actionPerformed(ActionEvent e) {
-			System.out.println("oi");
-			
-			if(this.button.getOn() == true) {
-				this.button.setIcon(new ImageIcon(new ImageIcon("img/bola.png").getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH)));
-				
-				for (Cell c : game.getCells()) {
-					if(c.getDefenseArea() == true)
-						c.setComputerPoint();
-					else
-						c.setPlayerPoint();
-				}
-					
-			}
+		if(e.getSource() == button) {
+			System.out.println("olaaaa");
+		}
 	}
+	
+//	if(this.button.getOn() == true) {
+//		this.button.setIcon(new ImageIcon(new ImageIcon("img/bola.png").getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH)));
+//		
+//		for (Cell c : game.getCells()) {
+//			if(c.getDefenseArea() == true)
+//				c.setComputerPoint();
+//			else
+//				c.setPlayerPoint();
+//		}
+//			
+//	}
 	
 	
 }

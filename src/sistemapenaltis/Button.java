@@ -11,9 +11,9 @@ public class Button extends JButton implements ActionListener{
 	
 	public Button createButton(String text, boolean on) {
 		Button b = new Button();
-		b.setSize(100, 100);
 		b.setText(text);
 		this.on = on;
+		b.addActionListener(this);
 		
 		return b;
 	}
