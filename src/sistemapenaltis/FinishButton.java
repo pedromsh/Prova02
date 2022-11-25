@@ -7,11 +7,12 @@ import javax.swing.JButton;
 import javax.swing.JOptionPane;
 
 public class FinishButton extends JButton implements ActionListener{
-	private Cell cell;
+	private GameBoard game;
 	
-	public JButton setFinishButton(String text) {
+	public JButton setFinishButton(String text, GameBoard game) {
 		JButton finish = new JButton();
 		finish.setText(text);
+		this.game = game;
 		finish.addActionListener(this);
 		
 		return finish;
@@ -19,7 +20,7 @@ public class FinishButton extends JButton implements ActionListener{
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		JOptionPane.showMessageDialog(null, "Pontuação do jogador: " + cell.getPlayerPoint() + "\nPontuação do computador: "
-				+ cell.getComputerPoint());
+		JOptionPane.showMessageDialog(null, "Pontuação do jogador: " + game.getPlayerPoint() + "\nPontuação do computador: "
+				+ game.getComputerPoint(), "Resultado", JOptionPane.DEFAULT_OPTION);
 	}
 }

@@ -22,5 +22,8 @@ public class Window extends JFrame{
 	
 		ScoreBoard score = new ScoreBoard(board, new Goalkeeper(board));
 		add(score, BorderLayout.NORTH);
+		
+		Pointing point = new Pointing(board);
+		add(point, BorderLayout.SOUTH);
 	}
 }

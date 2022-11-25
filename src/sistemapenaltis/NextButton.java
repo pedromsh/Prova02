@@ -8,12 +8,14 @@ import javax.swing.JButton;
 public class NextButton extends JButton implements ActionListener{
 
 	private Goalkeeper goalkeeper;
+	private GameBoard game;
 	
 	public JButton setNextButton(String text, Goalkeeper goalkeeper) {
 		JButton next = new JButton();
 		next.setText(text);
 		next.addActionListener(this);
 		this.goalkeeper = goalkeeper;
+		this.game = goalkeeper.getGame();
 		
 		return next;
 	}
@@ -21,6 +23,5 @@ public class NextButton extends JButton implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		goalkeeper.reset();
-		
 	}
 }

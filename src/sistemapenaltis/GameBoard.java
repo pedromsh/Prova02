@@ -8,7 +8,9 @@ import javax.swing.JPanel;
 
 public class GameBoard extends JPanel{
 
-private ArrayList<Cell> Cells;
+    private ArrayList<Cell> Cells;
+    private int playerPoint;
+	private int computerPoint;
 	
 	public GameBoard() {
 		Cells = new ArrayList<Cell>();
@@ -23,8 +25,28 @@ private ArrayList<Cell> Cells;
 		Cells = cells;
 	}
 	
+	// retorna pontuacao do jogador
+	public int getPlayerPoint() {
+		return playerPoint;
+	}
+
+	// conta mais um ponto pro jogador
+	public void setPlayerPoint() {
+		playerPoint++;
+	}
+
+	// retorna pontuacao do computador
+	public int getComputerPoint() {
+		return computerPoint;
+	}
+
+	// conta mais um ponto para o computador
+	public void setComputerPoint() {
+		computerPoint++;
+	}
+
 	public void mapping() {
-		for(int i = 0; i < 9; i++) {
+		for (int i = 0; i < 9; i++) {
 			auxMapping(i);
 		}
 	}

@@ -29,7 +29,7 @@ public class ScoreBoard extends JPanel{
 		add(start.setStartButton("Iniciar", gameBoard));
 		
 		finish = new FinishButton();
-		add(finish.setFinishButton("Terminar"));
+		add(finish.setFinishButton("Terminar", gameBoard));
 		
 		next = new NextButton();
 		add(next.setNextButton("Próximo", goalkeeper));

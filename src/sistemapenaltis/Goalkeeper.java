@@ -31,7 +31,7 @@ public class Goalkeeper implements ActionListener{
 
 		do {
 			for (Cell c : gameBoard.getCells()) {
-				if((c.getX() == x) && (c.getY() == y)) {
+				if(c.getX() == x && c.getY() == y) {
 					c.setDefenseArea(true);
 				}
 			}

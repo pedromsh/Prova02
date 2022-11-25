@@ -16,8 +16,8 @@ public class Cell extends Button implements ActionListener{
 	private JButton button;
 	private boolean defenseArea;
 	private GameBoard game;
-	private int playerPoint;
-	private int computerPoint;
+//	private int playerPoint;
+//	private int computerPoint;
 	private boolean on;
 	private Goalkeeper goalkeeper;
 	
@@ -73,25 +73,25 @@ public class Cell extends Button implements ActionListener{
 		this.defenseArea = defenseArea;
 	}
 
-	//retorna pontuacao do jogador
-	public int getPlayerPoint() {
-		return playerPoint;
-	}
-
-	//conta mais um ponto pro jogador
-	public void setPlayerPoint() {
-		playerPoint++;
-	}
-
-	//retorna pontuacao do computador
-	public int getComputerPoint() {
-		return computerPoint;
-	}
-
-	//conta mais um ponto para o computador
-	public void setComputerPoint() {
-		computerPoint++;
-	}
+//	//retorna pontuacao do jogador
+//	public int getPlayerPoint() {
+//		return playerPoint;
+//	}
+//
+//	//conta mais um ponto pro jogador
+//	public void setPlayerPoint() {
+//		playerPoint++;
+//	}
+//
+//	//retorna pontuacao do computador
+//	public int getComputerPoint() {
+//		return computerPoint;
+//	}
+//
+//	//conta mais um ponto para o computador
+//	public void setComputerPoint() {
+//		computerPoint++;
+//	}
 	
 	//retorna o valor de on
 	public boolean getOn() {
@@ -107,13 +107,13 @@ public class Cell extends Button implements ActionListener{
 		
 		if(getOn() == true) {
 			this.button.setIcon(new ImageIcon(new ImageIcon("img/bola.png").getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH)));
-			System.out.println("olaaaa");
 			goalkeeper.actionArea(game);
+			
 			for (Cell c : game.getCells()) {
 				if(c.getDefenseArea() == true)
-					c.setComputerPoint();
+					game.setComputerPoint();
 				else
-					c.setPlayerPoint();
+					game.setPlayerPoint();
 			}
 				
 		}
