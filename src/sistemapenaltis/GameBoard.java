@@ -32,11 +32,11 @@ private ArrayList<Cell> Cells;
 	public void auxMapping(int i) {
 		for(int j = 0; j < 17; j++) {
 			if(j == 0 || j == 16 || i == 0)
-				Cells.add(new Cell(j, i, GoalSection.OUT, new Button().createButton(null, false), false));
+				Cells.add(new Cell(j, i, GoalSection.OUT, new JButton(), false, false, this, new Goalkeeper(this)));
 			else if(j == 1 || j == 15 || i == 1)
-					Cells.add(new Cell(j, i, GoalSection.GOALPOST, new Button().createButton(null, false), false));
+					Cells.add(new Cell(j, i, GoalSection.GOALPOST, new JButton(), false, false, this, new Goalkeeper(this)));
 			else
-				Cells.add(new Cell(j, i, GoalSection.GOAL, new Button().createButton(null, false), false));
+				Cells.add(new Cell(j, i, GoalSection.GOAL, new JButton(), false, false, this, new Goalkeeper(this)));
 		}
 	}
 	
@@ -45,7 +45,7 @@ private ArrayList<Cell> Cells;
 		JPanel gamePanel = new JPanel();
 		gamePanel.setLayout(new GridLayout(9, 17));
 		for (Cell c : Cells) {
-			gamePanel.add(c.getButton().createButton(null, false));
+			gamePanel.add(c.getButton());
 		}
 		
 		return gamePanel;

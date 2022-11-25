@@ -19,8 +19,8 @@ public class Window extends JFrame{
 		
 		GameBoard board = new GameBoard();
 		add(board.organizeLayout(), BorderLayout.CENTER);
-		
-		ScoreBoard score = new ScoreBoard(board);
+	
+		ScoreBoard score = new ScoreBoard(board, new Goalkeeper(board));
 		add(score, BorderLayout.NORTH);
 	}
 }

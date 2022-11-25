@@ -21,7 +21,7 @@ public class StartButton extends JButton implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		for (Cell c : game.getCells()) {
-			c.getButton().setOn(true);
+			c.setOn(true);
 		}
 		System.out.println("clicado");
 		
