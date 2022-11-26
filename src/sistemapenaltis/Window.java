@@ -6,6 +6,7 @@ import javax.swing.JFrame;
 
 public class Window extends JFrame{
 
+	//Metodo construtor
 	public Window() {
 		setSize(850, 700);
 		setTitle("Sistema de Pênaltis");
@@ -14,6 +15,7 @@ public class Window extends JFrame{
 		setVisible(true);
 	}
 	
+	//metodo para criar e organizar os paineis
 	public void organizeLayout() {
 		setLayout(new BorderLayout());
 		

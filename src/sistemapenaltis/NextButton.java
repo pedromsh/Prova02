@@ -7,6 +7,7 @@ import javax.swing.JButton;
 
 public class NextButton extends JButton implements ActionListener{
 
+	//Atributos
 	private Goalkeeper goalkeeper;
 	private GameBoard game;
 	
@@ -20,7 +21,24 @@ public class NextButton extends JButton implements ActionListener{
 		return next;
 	}
 
-	@Override
+	//Metodos getters e setters
+	public Goalkeeper getGoalkeeper() {
+		return goalkeeper;
+	}
+
+	public void setGoalkeeper(Goalkeeper goalkeeper) {
+		this.goalkeeper = goalkeeper;
+	}
+
+	public GameBoard getGame() {
+		return game;
+	}
+
+	public void setGame(GameBoard game) {
+		this.game = game;
+	}
+
+	//Metodo do evento
 	public void actionPerformed(ActionEvent e) {
 		goalkeeper.reset();
 	}

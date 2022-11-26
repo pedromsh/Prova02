@@ -7,42 +7,77 @@ import java.util.Random;
 
 public class Goalkeeper implements ActionListener{
 
+	//Atributos
 	private GameBoard game;
+	private int gx;
+	private int gy;
 	
+	//Metodo construtor
 	public Goalkeeper(GameBoard game) {
 		this.game = game;
-		getDefenseArea(game);
 		
 		for (Cell c : game.getCells()) {
 			c.getButton().addActionListener(this);
 		}
+		
+		getDefenseArea(game);
 	}
 	
-	//gerar area de defesa do goleiro
-	public void getDefenseArea(GameBoard gameBoard) {
+	//Metodos getters e setters
+	public GameBoard getGame() {
+		return game;
+	}
+
+	public void setGame(GameBoard game) {
+		this.game = game;
+	}
+	
+	public int getGx() {
+		return gx;
+	}
+
+	public void setGx(int gx) {
+		this.gx = gx;
+	}
+
+	public int getGy() {
+		return gy;
+	}
+
+	public void setGy(int gy) {
+		this.gy = gy;
+	}
+
+	//metodo para sortear posicoes
+	public void draw() {
 		Random generator = new Random();
+		this.gx = generator.nextInt(17);
+		this.gy = generator.nextInt(9);
+	}
+
+	//Metodo para gerar area de defesa do goleiro
+	public void getDefenseArea(GameBoard gameBoard) {
+		draw();
 		
-		int x = generator.nextInt(17);
-		int y = generator.nextInt(9);
-		int initialY = y;
+		int initialY = getGy();
 		
 		int w = 20;
 		int cont = 0;
 
 		do {
 			for (Cell c : gameBoard.getCells()) {
-				if(c.getX() == x && c.getY() == y) {
-					c.setDefenseArea(true);
+				if(c.getX() == getGx() && c.getY() == getGy()) {
+					c.setDefense(true);
 				}
 			}
 			
-			if(cont < 3 && y > 0) {
-				y = y - 1;
+			if(cont < 3 && getGy() > 0) {
+				this.gy--;
 				cont++;
 			}
 			else {
-				y = initialY;
-				x = x + 1;
+				this.gy = initialY;
+				this.gx++;
 				cont = 0;
 			}
 			
@@ -56,7 +91,7 @@ public class Goalkeeper implements ActionListener{
 	//Metodo para destacar area de atuacao do goleiro
 	public void actionArea(GameBoard game) {
 		for (Cell c : game.getCells()) {
-			if(c.getDefenseArea() == true) {
+			if(c.getDefense() == true) {
 				c.getButton().setBackground(Color.red);
 			}
 		}
@@ -65,22 +100,15 @@ public class Goalkeeper implements ActionListener{
 	//Metodo para apagar area de atuacao para poder iniciar nova tentativa
 	public void reset() {
 		for (Cell c : game.getCells()) {
-			if(c.getDefenseArea() == true) {
+			if(c.getDefense() == true) {
 				c.getButton().setBackground(null);
 			}
 			
 			c.getButton().setIcon(null);
 		}
 		
-		getDefenseArea(game);
 	}
 
-	//Retorna o gameboard
-	public GameBoard getGame() {
-		return game;
-	}
-
-	@Override
 	public void actionPerformed(ActionEvent e) {
 		
 	}
