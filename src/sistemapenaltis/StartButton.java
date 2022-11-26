@@ -43,7 +43,6 @@ public class StartButton extends JButton implements ActionListener{
 		for (Cell c : game.getCells()) {
 			c.setOn(true);
 		}
-		System.out.println("clicado");
 		
 	}
 }
